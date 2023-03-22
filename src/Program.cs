@@ -1,6 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using BlogWebApp.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddDbContext<BlogWebAppContext>(options =>
+
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BlogWebAppContext") ?? throw new InvalidOperationException("Connection string 'BlogWebAppContext' not found.")));
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
@@ -17,6 +23,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=BlogPosts}/{action=Index}/{id?}");
 
 app.UseAuthorization();
 

@@ -1,0 +1,16 @@
+﻿@model BlogWebApp.Models.BlogPosts
+
+@{ ViewBag.Title = @Model.Title; }
+<div class="container">
+    <div class="row">
+        <article class="col-sm-9">
+            <div class="page-header">
+                <h1>@Model.Title</h1>
+                <div class="text-muted">
+                    <span>Posted on:<i class="glyphicon glyphicon-calendar"></i> @Model.PublishedOn.ToString("ddd, MMM dd yyyy")</span>
+                </div>
+            </div>
+            <p>@Html.Raw(@Model.Body)</p>
+        </article>      
+    </div>
+</div>
