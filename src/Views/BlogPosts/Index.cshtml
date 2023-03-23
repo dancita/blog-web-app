@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BlogWebApp.Models.BlogPosts>
+﻿@model IEnumerable<BlogWebApp.ViewModels.BlogPostListItem>
 
 @{
     ViewData["Title"] = "Index";
@@ -12,15 +12,20 @@
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfComments)
+            </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-            <tr>
-                <td onclick="location.href = '@Url.Action("Details", "BlogPosts", new { id = item.BlogPostId })'"
-                style="cursor:pointer">
+            <tr onclick="location.href = '@Url.Action("Details", "BlogPosts", new { id = item.BlogPostId })'"
+            style="cursor:pointer">
+                <td>
                     <a>@Html.DisplayFor(modelItem => item.Title)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfComments)
                 </td>
             </tr>
 }

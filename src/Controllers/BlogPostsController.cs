@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BlogWebApp.Data;
+using BlogWebApp.ViewModels;
+using BlogWebApp.Models;
 
 namespace BlogWebApp.Controllers
 {
@@ -14,8 +16,20 @@ namespace BlogWebApp.Controllers
 
         // GET: BlogPosts
         public async Task<IActionResult> Index()
-        {
-            return View(_context.BlogPosts.ToList());
+        {  
+            var blogPostListItems = new List<BlogPostListItem>();
+            List<BlogPosts> blogPosts = _context.BlogPosts.ToList();
+            foreach (BlogPosts blogPost in blogPosts)
+            {
+                blogPostListItems.Add(new BlogPostListItem()
+                {
+                    Title = blogPost.Title,
+                    NumberOfComments = _context.BlogComment.Where(x => x.BlogPostId == blogPost.BlogPostId).Count(),
+                    BlogPostId= blogPost.BlogPostId
+                });
+            }            
+
+            return View(blogPostListItems);
         }
 
 

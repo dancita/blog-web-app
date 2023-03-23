@@ -11,6 +11,6 @@ namespace BlogWebApp.Data
         }
 
         public DbSet<BlogPosts> BlogPosts { get; set; } = default!;
-        public DbSet<BlogComment> BlogComments { get; set; } = default!;
+        public DbSet<BlogComment> BlogComment { get; set; } = default!;
     }
 }
