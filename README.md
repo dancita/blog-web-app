@@ -14,7 +14,7 @@ Think about the structure and maintainability of the code and prioritise satisfy
 
 **As a** reader of the blog  
 **I want** see the number of comments each post has in the list  
-**So that** I can get a feel for how intersting the post is
+**So that** I can get a feel for how interesting the post is
 
 **As a** reader of the blog  
 **I want** be able to click on a post in the list to view the post  
