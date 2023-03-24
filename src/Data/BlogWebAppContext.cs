@@ -5,12 +5,14 @@ namespace BlogWebApp.Data
 {
     public class BlogWebAppContext : DbContext
     {
+        public BlogWebAppContext() { }
+
         public BlogWebAppContext (DbContextOptions<BlogWebAppContext> options)
             : base(options)
         {
         }
 
-        public DbSet<BlogPosts> BlogPosts { get; set; } = default!;
-        public DbSet<BlogComment> BlogComment { get; set; } = default!;
+        public virtual DbSet<BlogPost> BlogPosts { get; set; } = default!;
+        public virtual DbSet<BlogComment> BlogComment { get; set; } = default!;
     }
 }

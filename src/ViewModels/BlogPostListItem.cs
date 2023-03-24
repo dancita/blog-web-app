@@ -4,7 +4,7 @@ namespace BlogWebApp.ViewModels
 {
     public class BlogPostListItem
     {
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         [DisplayName("Number of comments")]
         public int NumberOfComments { get; set; }

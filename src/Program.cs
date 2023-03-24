@@ -26,7 +26,7 @@ app.UseRouting();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=BlogPosts}/{action=Index}/{id?}");
+    pattern: "{controller=BlogPost}/{action=Index}/{id?}");
 
 app.UseAuthorization();
 
