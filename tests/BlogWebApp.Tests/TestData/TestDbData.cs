@@ -12,7 +12,7 @@ namespace BlogWebApp.Tests.TestData
                 {
                     BlogPostId = 1,
                     Body = "This is my first blog post.",
-                    PublishedOn = DateTime.Now.AddYears(-1),
+                    PublishedOn = new DateTime(2019,05,09,9,15,0),
                     Title = "First post",
                 },
                 new BlogPost
@@ -44,6 +44,11 @@ namespace BlogWebApp.Tests.TestData
                     CommentId= 2,
                 }
             };
+        }
+
+        public static List<BlogPost> GetEmptyBlogPostList()
+        {
+            return new List<BlogPost>();
         }
     }
 }
